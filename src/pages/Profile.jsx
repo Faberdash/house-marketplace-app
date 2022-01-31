@@ -82,6 +82,11 @@ function Profile() {
     }
   }
 
+  // Edit a Listing Item
+  const onEdit = (listingId) => {
+    navigate(`/edit-listing/${listingId}`)
+  }
+
   useEffect(() => {
     const fetchUsersListings = async () => {
       const listingsRef = collection(db, 'listings')
@@ -170,6 +175,7 @@ function Profile() {
                   listing={listing.data}
                   id={listing.id}
                   onDelete={() => onDelete(listing.id)}
+                  onEdit={() => onEdit(listing.id)}
                 />
               ))}
             </ul>
